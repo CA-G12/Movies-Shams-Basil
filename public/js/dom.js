@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const suggestionDiv = document.querySelector('.suggestion');
 const filmName = document.querySelector(".film-name");
 const description = document.querySelector(".description");
 const filmImg = document.querySelector(".image");
@@ -77,7 +78,16 @@ input.addEventListener("keyup", (e) => {
     const { value } = input;
     fetch(`/search/${value}`)
       .then((data) => data.json())
-      .then((res) => handleSearch(res))
+      .then((res) => {
+        if(res.length === 0){
+            suggestionDiv.style.display = 'none';
+            container.innerHTML = `<img src="./img/no-results-found.png" />`
+        }else {
+            handleSearch(res);
+            suggestionDiv.style.display = 'flex';
+        }
+        
+    })
       .catch((err) => console.log(err, "Failed"));
   }
 });
@@ -86,7 +96,16 @@ btnSubmit.addEventListener("click", () => {
   const { value } = input;
   fetch(`/search/${value}`)
     .then((data) => data.json())
-    .then((res) => handleSearch(res))
+    .then((res) => {
+        if(res.length === 0){
+            suggestionDiv.style.display = 'none';
+            container.innerHTML = `<img src="./img/no-results-found.png" />`
+        }else {
+            handleSearch(res);
+            suggestionDiv.style.display = 'flex';
+        }
+        
+    })
     .catch((err) => console.log(err, "Failed"));
 });
 
@@ -94,6 +113,16 @@ input.addEventListener("input", () => {
   const { value } = input;
   fetch(`/search/${value}`)
     .then((data) => data.json())
-    .then((res) => handleSearch(res))
+    .then((res) => {
+        if(res.length === 0){
+            suggestionDiv.style.display = 'none';
+            container.innerHTML = `<img src="./img/no-results-found.png" />`
+        }else {
+            handleSearch(res);
+            suggestionDiv.style.display = 'flex';
+        }
+        
+    })
     .catch((err) => console.log(err, "Failed"));
+
 });
