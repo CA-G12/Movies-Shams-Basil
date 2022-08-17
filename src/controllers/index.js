@@ -1,3 +1,3 @@
-const { getAllFilms } = require("./film");
+const { getAllFilms, searchFilm } = require("./film");
 
-module.exports = { getAllFilms };
+module.exports = { getAllFilms, searchFilm };
