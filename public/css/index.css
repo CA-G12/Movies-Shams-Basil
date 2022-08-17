@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap%27');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inter;
+  transition: all 0.2s ease-in-out;
+}
+
+:root {
+  --background: #171717;
+  --blue: #00FEFE;
+  --red: #BC2200;
+  --second_background: #2D2D2D;
+  --text: #CCCCCC;
+  --white: #EEEEEE;
+}
+
+body {
+  background-color: var(--background);
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  background-color: var(--second_background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem 1rem 5rem;
+  height: 10vh;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--white);
+  text-shadow: 0 4px 4px #111;
+}
+
+header h1 span {
+  text-transform: capitalize;
+  color: var(--blue);
+}
+
+header nav {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav > div:nth-child(1) {
+  position: relative;
+  width: 40%;
+}
+
+header nav > div:nth-child(1) input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--background);
+  outline: 0;
+  border: 0;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: var(--white);
+  box-shadow: 0 4px 4px 0 #111;
+}
+
+header nav > div:nth-child(1) button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  background-color: inherit;
+  border: 0;
+  outline: 0;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+header nav > div:nth-child(1) button:hover {
+  color: var(--blue);
+  font-size: 1rem;
+}
+
+header nav > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+header nav > div .circle {
+  width: 35px;
+  height: 35px;
+  background-color: var(--background);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0px 4px 0 #111;
+}
+
+header nav > div .circle i {
+  font-size: 1.1rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+header nav > div .circle:hover i {
+  color: var(--blue);
+  font-size: 1.2rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  height: 90vh;
+}
+
+aside {
+  padding: 2rem 2rem;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row: span 2;
+  background-color: var(--second_background);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+aside a {
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+  padding: 0.6rem 2rem;
+  background-color: var(--background);
+  border-radius: 30px;
+}
+
+aside a:hover {
+  color: var(--blue);
+}
+
+aside a i {
+  color: var(--blue);
+}
+
+aside a:hover i {
+  font-size: 1.1rem;
+}
+
+aside a span {
+  margin-left: 2rem;
+}
+
+section {
+  grid-column-start: 5;
+  grid-column-end: 16;
+  grid-row: span 2;
+  margin-top: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  padding: 0 2rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #6f6f6f00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #008484;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
+}
