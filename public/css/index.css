@@ -191,3 +191,172 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--blue);
 }
+
+section .suggestion {
+  width: 100%;
+  background-color: var(--second_background);
+  height: 30vh;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+section .suggestion > div {
+  width: 40%;
+  height: 100%;
+}
+
+section .suggestion > div:nth-child(1) {
+  padding: 1.5rem 1rem 1.5rem 4rem;
+  color: var(--white);
+  width: 60%;
+}
+
+section .suggestion div .film-name {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+section .suggestion div .desciption {
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+section .suggestion div button {
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--red);
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px 0 #222;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+section .suggestion div button:hover {
+  background-color: var(--blue);
+  color: var(--background);
+}
+
+section .suggestion > div:nth-child(2) {
+  position: relative;
+  overflow: hidden;
+}
+
+section .suggestion > div:nth-child(2) img{
+  width: 100%;
+  height: 100%;
+}
+
+section .suggestion > div:nth-child(2):hover img {
+  transform: scale(1.1);
+}
+
+section .suggestion > div:nth-child(2) span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(90deg, rgba(17, 17, 17, 0.95) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(10, 10, 10, 0.6) 100%);
+  width: 100%;
+  height: 100%;
+}
+
+section .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+section .container .card {
+  position: relative;
+  width: calc(90% / 4);
+  height: 350px;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+section .container .card img {
+  width: 100%;
+  height: 100%;
+}
+
+section .container .card .info {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+section .container .card .info h3 {
+  color: #fff;
+  font-weight: 200;
+  font-size: 1rem;
+  text-transform: capitalize
+}
+
+section .container .card .info button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--red);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+section .container .card .info button i {
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+section .container .card .info button:hover {
+  background-color: var(--blue);
+}
+
+section .container .card .info button:hover i {
+  color: var(--background);
+  font-size: 1.3rem;
+}
+
+section .container .card:hover img {
+  transform: scale(1.1) rotate(4deg);
+  opacity: 0.6;
+}
+
+.pop-up {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.pop-up div {
+  width: 50%;
+  height: 80%;
+  background-color: var(--second_background);
+  box-shadow: 0 0 10px 0 var(--background);
+}
