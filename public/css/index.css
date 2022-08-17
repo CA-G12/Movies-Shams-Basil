@@ -212,6 +212,7 @@ section .suggestion > div:nth-child(1) {
   padding: 1.5rem 1rem 1.5rem 4rem;
   color: var(--white);
   width: 60%;
+  position: relative;
 }
 
 section .suggestion div .film-name {
@@ -220,7 +221,7 @@ section .suggestion div .film-name {
   font-weight: 500;
 }
 
-section .suggestion div .desciption {
+section .suggestion .description p{
   margin: 0.5rem 0 0.5rem 0.5rem;
   font-size: 0.8rem;
   font-weight: 300;
@@ -239,6 +240,9 @@ section .suggestion div button {
   box-shadow: 0 4px 10px 0 #222;
   margin-top: 1rem;
   cursor: pointer;
+  position: absolute;
+  bottom: 1rem;
+  left: 4rem;
 }
 
 section .suggestion div button:hover {
