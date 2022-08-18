@@ -377,6 +377,7 @@ section .container .card:hover img {
   font-size: 1.6rem;
   color: var(--background);
   cursor: pointer;
+  z-index: 1000;
 }
 
 #pop-up .container #cancel:hover {
