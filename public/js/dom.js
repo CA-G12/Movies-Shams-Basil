@@ -9,7 +9,8 @@ const header = document.querySelector(`header`);
 const main = document.querySelector(`main`);
 const loading = document.querySelector(`.loading`);
 const popUp = document.querySelector("#pop-up");
-const cancel = document.querySelector("#cancel");
+const cancel = document.querySelector(".container #cancel");
+console.log(cancel)
 
 const showRandomFilms = (data) => {
   data
@@ -79,9 +80,7 @@ const showDetails = (dataArray) => {
 
   }
 };
-cancel.addEventListener("click", () => {
-  popUp.style.display = "none";
-});
+
 /*********************************************************/
 const showOneFilmRandomly = (data) => {
   let random = Math.floor(Math.random() * data.length - 1);
@@ -165,3 +164,9 @@ setTimeout(() => {
   header.style.display = `flex`;
   main.style.display = `grid`;
 }, 3000)
+
+
+popUp.addEventListener("click", () => {
+  console.log(`khergkjewhgj`)
+  popUp.style.display = "none";
+});
