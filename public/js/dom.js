@@ -7,8 +7,10 @@ const btnSubmit = document.querySelector("#btn");
 const input = document.querySelector("input");
 const header = document.querySelector(`header`);
 const main = document.querySelector(`main`);
-const popUp = document.querySelector(`#pop-up`);
 const loading = document.querySelector(`.loading`);
+const popUp = document.querySelector("#pop-up");
+const cancel = document.querySelector(".container #cancel");
+console.log(cancel)
 
 const showRandomFilms = (data) => {
   data
@@ -34,9 +36,52 @@ const showRandomFilms = (data) => {
       btn.setAttribute(`data-id`, ele["id"])
       btn.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i>`;
       info.appendChild(btn);
+
+      btn.addEventListener("click", () => {
+        popUp.style.display = "flex";
+        let obj = {
+          name: ele["name"],
+          rating: ele["rating"]["average"],
+          genre: ele["genres"],
+          premiered: ele["premiered"],
+          image: ele["image"]["original"],
+          summary: ele["summary"],
+          language: ele["language"],
+          link_url: ele['url']
+        };
+        showDetails(obj);
+        let dataArray = JSON.parse(localStorage.getItem("series") || " []");
+        dataArray[0] = obj;
+
+        localStorage.setItem("series", JSON.stringify(dataArray));
+      });
     });
 };
+/*********************************************************/
+const image = document.querySelector(".photo img");
+const filmTitle = document.querySelector(".description h1");
+const rating = document.querySelector(".rating");
+const language = document.querySelector(".lang");
+const genre = document.querySelector(".genre");
+const premiered = document.querySelector(".premiered");
+const summary = document.querySelector(".summary");
+const link = document.querySelector('.link');
 
+const showDetails = (dataArray) => {
+  if (dataArray) {
+    image.src = dataArray["image"];
+    filmTitle.textContent = dataArray["name"];
+    rating.textContent = dataArray["rating"];
+    language.textContent = dataArray["language"];
+    genre.textContent = dataArray["genre"];
+    premiered.textContent = dataArray["premiered"];
+    summary.innerHTML = dataArray["summary"];
+    link.href = dataArray['link_url']
+
+  }
+};
+
+/*********************************************************/
 const showOneFilmRandomly = (data) => {
   let random = Math.floor(Math.random() * data.length - 1);
   console.log(data[random]["summary"])
@@ -74,44 +119,27 @@ const handleSearch = (data) => {
     const btn = document.createElement("button");
     btn.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i>`;
     info.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      popUp.style.display = "flex";
+      let obj = {
+        name: ele["name"],
+        rating: ele["rating"]["average"],
+        genre: ele["genres"],
+        premiered: ele["premiered"],
+        image: ele["image"]["original"],
+        summary: ele["summary"],
+        language: ele["language"],
+        link_url: ele['url']
+      };
+      showDetails(obj);
+      let dataArray = JSON.parse(localStorage.getItem("series") || " []");
+      dataArray[0] = obj;
+
+      localStorage.setItem("series", JSON.stringify(dataArray));
+    });
   });
 };
-
-input.addEventListener("keyup", (e) => {
-  if (e.keyCode === 13) {
-    const { value } = input;
-    fetch(`/search/${value}`)
-      .then((data) => data.json())
-      .then((res) => {
-        if(res.length === 0){
-            suggestionDiv.style.display = 'none';
-            container.innerHTML = `<img src="./img/no-results-found.png" />`
-        }else {
-            handleSearch(res);
-            suggestionDiv.style.display = 'flex';
-        }
-        
-    })
-      .catch((err) => console.log(err, "Failed"));
-  }
-});
-
-btnSubmit.addEventListener("click", () => {
-  const { value } = input;
-  fetch(`/search/${value}`)
-    .then((data) => data.json())
-    .then((res) => {
-        if(res.length === 0){
-            suggestionDiv.style.display = 'none';
-            container.innerHTML = `<img src="./img/no-results-found.png" />`
-        }else {
-            handleSearch(res);
-            suggestionDiv.style.display = 'flex';
-        }
-        
-    })
-    .catch((err) => console.log(err, "Failed"));
-});
 
 input.addEventListener("input", () => {
   const { value } = input;
@@ -128,7 +156,6 @@ input.addEventListener("input", () => {
         
     })
     .catch((err) => console.log(err, "Failed"));
-
 });
 
 
@@ -137,3 +164,9 @@ setTimeout(() => {
   header.style.display = `flex`;
   main.style.display = `grid`;
 }, 3000)
+
+
+popUp.addEventListener("click", () => {
+  console.log(`khergkjewhgj`)
+  popUp.style.display = "none";
+});
