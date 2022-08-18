@@ -13,6 +13,10 @@
 </head>
 
 <body>
+  <div class="loading">
+    <div class="ring"></div>
+    <span>loading...</span>
+  </div>
   <header>
     <h1><span>ser</span>ovie</h1>
     <nav>
@@ -49,8 +53,23 @@
       </div>
     </section>
   </main>
-  <div class="pop-up">
-    <div>
+  <div id="pop-up">
+    <div class="container">
+      <i class="fa-solid fa-xmark" id="cancel"></i>
+      <div class="description">
+        <h1>Under The Dome</h1>
+        <div class="table">
+          <div><h4>rating:</h4><p></p><i class="fa-solid fa-star"></i></div>
+          <div><h4>language:</h4><p></p></div>
+          <div><h4>genres:</h4><p></p></div>
+          <div><h4>permiered:</h4><p></p></div>
+          <div></div>
+        </div>
+        <a href="#">watch</a>
+      </div>
+      <div class="photo">
+        <img src="https://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg">
+      </div>
     </div>
   </div>
   <script src="./js/dom.js"></script>

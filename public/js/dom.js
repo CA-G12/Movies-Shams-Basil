@@ -5,6 +5,10 @@ const description = document.querySelector(".description");
 const filmImg = document.querySelector(".image");
 const btnSubmit = document.querySelector("#btn");
 const input = document.querySelector("input");
+const header = document.querySelector(`header`);
+const main = document.querySelector(`main`);
+const popUp = document.querySelector(`#pop-up`);
+const loading = document.querySelector(`.loading`);
 
 const showRandomFilms = (data) => {
   data
@@ -126,3 +130,10 @@ input.addEventListener("input", () => {
     .catch((err) => console.log(err, "Failed"));
 
 });
+
+
+setTimeout(() => {
+  loading.style.display = `none`
+  header.style.display = `flex`;
+  main.style.display = `grid`;
+}, 3000)
