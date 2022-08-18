@@ -30,6 +30,7 @@ header {
   align-items: center;
   padding: 1rem 3rem 1rem 5rem;
   height: 10vh;
+  display: none;
 }
 
 header h1 {
@@ -119,6 +120,7 @@ main {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   height: 90vh;
+  display: none;
 }
 
 aside {
@@ -345,22 +347,169 @@ section .container .card:hover img {
   opacity: 0.6;
 }
 
-.pop-up {
+#pop-up {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 17, 17, 0.5);
+  background-color: rgba(17, 17, 17, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   display: none;
 }
 
-.pop-up div {
+#pop-up .container {
   width: 50%;
   height: 80%;
   background-color: var(--second_background);
   box-shadow: 0 0 10px 0 var(--background);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+#pop-up .container #cancel {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  font-size: 1.6rem;
+  color: var(--background);
+  cursor: pointer;
+}
+
+#pop-up .container > i:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+
+#pop-up .container > div {
+  width: 50%;
+  height: 100%;
+}
+
+#pop-up .container .description {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pop-up .container .photo img{
+  width: 100%;
+  height: 100%;
+}
+
+#pop-up .container .description h1 {
+  text-transform: capitalize;
+  color: var(--white);
+  text-shadow: 0px 4px 5px #000000;
+}
+
+#pop-up .container .description .table {
+  margin-top: 3rem;
+  color: var(--white);
+  padding: 0 1.2rem;
+}
+
+#pop-up .container .description .table div {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0.8rem 0.8rem;
+  border-bottom: 2px solid rgba(11, 11, 11, 0.6);
+}
+
+#pop-up .container .description .table div:first-child {
+  border-top: 2px solid rgba(11, 11, 11, 0.6);
+}
+
+#pop-up .container .description .table h4 {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  text-shadow: 0px 4px 5px #000000;
+  margin-right: 2rem;
+}
+
+#pop-up .container .description .table i {
+  color: #FF8C05;
+  margin-left: 0.5rem;
+}
+
+#pop-up .container .description .table p {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  text-shadow: 0px 4px 5px #000000;
+}
+
+#pop-up .container .description a {
+  margin-top: 3rem;
+  padding: 0.5rem 3rem;
+  background-color: var(--red);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#pop-up .container .description a:hover {
+  color: var(--red);
+  background-color: inherit;
+  outline: 1px solid var(--red);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loading .ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  animation: ring 1s linear infinite;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #e65c00;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #18b201;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px #0456c8;
+  }
+}
+
+.loading .ring::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.loading span {
+  color: #737373;
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  line-height: 200px;
+  animation: text 3s ease-in-out linear infinite;
+}
+
+@keyframes text {
+  50%{
+    color: #111;
+  }
 }
