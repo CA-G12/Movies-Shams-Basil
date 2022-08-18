@@ -166,7 +166,7 @@ setTimeout(() => {
 }, 3000)
 
 
-popUp.addEventListener("click", () => {
+cancel.addEventListener("click", () => {
   console.log(`khergkjewhgj`)
   popUp.style.display = "none";
 });
